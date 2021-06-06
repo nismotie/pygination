@@ -35,10 +35,13 @@ class TestLib(unittest.TestCase):
         self.assertEqual(self.paginator2.num_pages(), 7)
         self.assertEqual(self.paginator3.num_pages(), 4)
 
-
     def test_page_item_count(self):
         self.assertEqual(self.paginator2.page_item_count(5), 8)
         self.assertEqual(self.paginator2.page_item_count(6), 5)
+
+    def test_item_page_index(self):
+        self.assertEqual(self.paginator2.item_page_index(27), 3)
+        self.assertEqual(self.paginator2.item_page_index(52), 6)
 
 
 if __name__ == "__main__":
