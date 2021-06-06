@@ -3,12 +3,18 @@ from lib import Paginator
 
 
 class TestLib(unittest.TestCase):
-    valid_content = ['a', 'b', 'c', 'd', 'e', 'f']
+
+    def setUp(self):
+        self.paginator = Paginator(['item1', 'item2', 'item3', 'item4', 'item5'], 2)
+
+    def tearDown(self):
+        pass
 
     def test_init_attrs(self):
-        paginator = Paginator(['item1', 'item2', 'item3', 'item4', 'item5'], 2)
-        self.assertEqual(paginator.content, ['item1', 'item2', 'item3', 'item4', 'item5'])
-        self.assertEqual(paginator.items_per_page, 2)
+        self.assertEqual(self.paginator.content, ['item1', 'item2', 'item3', 'item4', 'item5'])
+        self.assertEqual(self.paginator.items_per_page, 2)
+
+    valid_content = ['a', 'b', 'c', 'd', 'e', 'f']
 
     def test_init_empty_content(self):
         self.assertRaises(ValueError, Paginator, [], 10)

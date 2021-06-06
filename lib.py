@@ -5,7 +5,7 @@ class Paginator:
         else:
             self.content = content
 
-        if num_pages < 1:
+        if items_per_page < 1:
             raise ValueError('Number of pages must be 1 or more')
         else:
             self.items_per_page = items_per_page
