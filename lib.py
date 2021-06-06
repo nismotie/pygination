@@ -9,3 +9,6 @@ class Paginator:
             raise ValueError('Number of pages must be 1 or more')
         else:
             self.items_per_page = items_per_page
+
+    def num_items(self):
+        return len(self.content)

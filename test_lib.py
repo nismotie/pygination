@@ -25,6 +25,9 @@ class TestLib(unittest.TestCase):
     def test_init_negative_pages(self):
         self.assertRaises(ValueError, Paginator, self.valid_content, -10)
 
+    def test_num_items(self):
+        self.assertEqual(self.paginator.num_items(), 5)
+
 
 if __name__ == "__main__":
     unittest.main()
