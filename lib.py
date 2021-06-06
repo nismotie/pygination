@@ -1,3 +1,4 @@
+from math import ceil
 class Paginator:
     def __init__(self, content: list, items_per_page: int):
         if not content:
@@ -12,3 +13,6 @@ class Paginator:
 
     def num_items(self):
         return len(self.content)
+
+    def num_pages(self):
+        return ceil(self.num_items() / self.items_per_page) 
